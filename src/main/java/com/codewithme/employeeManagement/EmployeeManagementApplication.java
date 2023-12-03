@@ -14,7 +14,8 @@ public class EmployeeManagementApplication {
 
 
 // spring.jpa.hibernate.ddl-auto=update
-// spring.datasource.url=jdbc:mysql://localhost:3306/quizApp
+// spring.datasource.url=jdbc:mysql://localhost:3306/employeemanagement
+
 // spring.datasource.username=root
 // spring.datasource.password=toor
 // spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
