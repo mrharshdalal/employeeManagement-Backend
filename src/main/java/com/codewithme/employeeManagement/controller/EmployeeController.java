@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    // @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/getAllEmployees")
     public ResponseEntity<List<Employee>> getAllEmployee(){
         List<Employee> employees = employeeService.findAllEmployees();
