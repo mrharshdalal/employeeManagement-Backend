@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.codewithme.employeeManagement.exception.UserNotFoundException;
 import com.codewithme.employeeManagement.model.Employee;
 import com.codewithme.employeeManagement.repository.EmployeeRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class EmployeeService {
@@ -36,8 +39,15 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
     
-    public void deleteEmployee(Long id) {
-        employeeRepository.deleteEmployeeById(id);
+    @Transactional
+    public void deleteEmployee(Long id){
+        // employeeRepository.deleteEmployeeById(id);
+
+        try {
+            employeeRepository.deleteEmployeeById(id);
+        } catch (Exception ex) {
+            ex.printStackTrace(); 
+        }
     }
     
 }
