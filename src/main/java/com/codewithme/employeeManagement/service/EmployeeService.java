@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.codewithme.employeeManagement.exception.UserNotFoundException;
@@ -14,6 +13,7 @@ import com.codewithme.employeeManagement.repository.EmployeeRepository;
 import jakarta.transaction.Transactional;
 
 @Service
+@Transactional
 public class EmployeeService {
     @Autowired
     private final EmployeeRepository employeeRepository;
@@ -39,7 +39,6 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
     
-    @Transactional
     public void deleteEmployee(Long id){
         // employeeRepository.deleteEmployeeById(id);
 
